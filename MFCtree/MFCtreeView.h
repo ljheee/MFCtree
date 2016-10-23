@@ -15,8 +15,13 @@ protected: // 仅从序列化创建
 public:
 	CMFCtreeDoc* GetDocument() const;
 
+	CImageList m_ImageList;//添加成员变量
+	CString m_strPath;
+
 // 操作
 public:
+	void InsertFoldItem(HTREEITEM hItem , CString strPath);
+	CString GetFoldItemPath(HTREEITEM hItem);
 
 // 重写
 public:
@@ -40,6 +45,9 @@ protected:
 	afx_msg void OnRButtonUp(UINT nFlags, CPoint point);
 	afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
 	DECLARE_MESSAGE_MAP()
+public:
+//	afx_msg void OnTvnSelchanging(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnTvnSelchanged(NMHDR *pNMHDR, LRESULT *pResult);
 };
 
 #ifndef _DEBUG  // MFCtreeView.cpp 中的调试版本
