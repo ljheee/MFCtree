@@ -151,10 +151,12 @@ CString  CMFCtreeView::GetFoldItemPath(HTREEITEM hItem){
 		}else{
 			str.Format(_T("%c:\\"), data);  //?
 		}
-		strPath += "*.*";  //
-//		strPath = strPath + "*.*";
-		return strPath;
+		strPath = str + "\\" + strPath;
+		folderItem = treeCtrl.GetParentItem( folderItem);
 	}
+//	strPath = strPath + "*.*";
+	strPath += "*.*";  //
+	return strPath;
 }
 
 // CMFCtreeView 消息处理程序
